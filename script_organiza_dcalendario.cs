@@ -1,5 +1,5 @@
 // Faz a ordenação e organiza as colunas em pastas
-var tbcalendario = Model.Tables["dCalendario"];  // Acesse a tabela dCalendario
+var tb = Model.Tables["dCalendario"];  // Acesse a tabela dCalendario
 
 // Cria um mapeamento das colunas de texto e suas respectivas colunas numéricas para ordenação
 var columnPairs = new Dictionary<string, string>
@@ -47,8 +47,8 @@ var columnPairs = new Dictionary<string, string>
 // Aplica a ordenação para cada coluna de texto
 foreach (var pair in columnPairs)
 {
-    var textColumn = tbcalendario.Columns[pair.Key];  // Coluna de texto
-    var sortColumn = tbcalendario.Columns[pair.Value];  // Coluna numérica correspondente
+    var textColumn = tb.Columns[pair.Key];  // Coluna de texto
+    var sortColumn = tb.Columns[pair.Value];  // Coluna numérica correspondente
 
     // Verifica se ambas as colunas existem e aplica a ordenação
     if (textColumn != null && sortColumn != null)
@@ -84,10 +84,19 @@ foreach (var folder in displayFolders)
 
     foreach (var columnName in columns)
     {
-        var column = tbcalendario.Columns[columnName];
+        var column = tb.Columns[columnName];
         if (column != null)
         {
             column.DisplayFolder = folderName; // Atribue as colunas à pasta correspondente
         }
     }
 }
+
+// Desabilitar agregações para todas as colunas da tabela
+foreach (var column in tb.Columns)
+{
+    column.SummarizeBy = AggregateFunction.None;  // Desabilitar agregação
+}
+
+
+
