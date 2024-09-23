@@ -1,5 +1,10 @@
-// Faz a ordenação e organiza as colunas em pastas
-var tb = Model.Tables["dCalendario"];  // Acesse a tabela dCalendario
+// Este script realiza as seguintes operações:
+// Faz a ordenação das colunas de texto pelas colunas numéricas
+// Organiza as colunas em pastas por granularidade
+// Aplica o formato short date para colunas do tipo data
+
+// Acessa a tabela dCalendario
+var tb = Model.Tables["dCalendario"];  
 
 // Cria um mapeamento das colunas de texto e suas respectivas colunas numéricas para ordenação
 var columnPairs = new Dictionary<string, string>
