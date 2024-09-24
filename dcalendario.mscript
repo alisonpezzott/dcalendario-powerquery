@@ -47,19 +47,19 @@ let
         ],
         {
           // Dia, Mês, Feriado
-            { 01, 01, "Confraternização Universal"   }, 
-            // { 25, 01, "Aniversário da Cidade"        }, 
-            { 21, 04, "Tiradentes"                   }, 
-            { 01, 05, "Dia do Trabalhador"           }, 
-            // { 09, 07, "Revolução Constitucionalista" }, 
-            { 07, 09, "Independência do Brasil"      }, 
-            { 12, 10, "N. Srª Aparecida"             }, 
-            { 02, 11, "Finados"                      }, 
-            { 15, 11, "Proclamação da República"     }, 
-            // { 20, 11, "Consciência Negra"            }, 
-            // { 24, 12, "Véspera de Natal"             }, 
-            { 25, 12, "Natal"                        }, 
-            // { 31, 12, "Véspera de Ano Novo"          } 
+                 { 01, 01, "Confraternização Universal"   }
+            // , { 25, 01, "Aniversário da Cidade"        } 
+               , { 21, 04, "Tiradentes"                   } 
+               , { 01, 05, "Dia do Trabalhador"           } 
+            // , { 09, 07, "Revolução Constitucionalista" } 
+               , { 07, 09, "Independência do Brasil"      } 
+               , { 12, 10, "N. Srª Aparecida"             } 
+               , { 02, 11, "Finados"                      } 
+               , { 15, 11, "Proclamação da República"     } 
+            // , { 20, 11, "Consciência Negra"            } 
+            // , { 24, 12, "Véspera de Natal"             } 
+               , { 25, 12, "Natal"                        } 
+            // , { 31, 12, "Véspera de Ano Novo"          } 
         } 
     ), 
 
@@ -100,12 +100,13 @@ let
                     Feriado = text 
                 ], 
                 { 
-                    // { Date.AddDays(pascoa, -48 ), "Segunda-feira de Carnaval"  }, 
-                    // { Date.AddDays(pascoa, -47 ), "Terça-feira de Carnaval"    }, 
-                    // { Date.AddDays(pascoa, -46 ), "Quarta-feira de Cinzas"     }, 
-                    { Date.AddDays(pascoa, -2  ), "Sexta-Feira Santa"          }, 
-                    { pascoa                    , "Páscoa"                     }, 
-                    { Date.AddDays(pascoa, 60  ), "Corpus Christi"             } 
+                    
+                         { Date.AddDays(pascoa, -2  ), "Sexta-Feira Santa"          } 
+                       , { pascoa                    , "Páscoa"                     }
+                       , { Date.AddDays(pascoa, 60  ), "Corpus Christi"             }
+                    // , { Date.AddDays(pascoa, -48 ), "Segunda-feira de Carnaval"  }
+                    // , { Date.AddDays(pascoa, -47 ), "Terça-feira de Carnaval"    }
+                    // , { Date.AddDays(pascoa, -46 ), "Quarta-feira de Cinzas"     }
                 } 
             ) 
         in 
