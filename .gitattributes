@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
-# * text=auto
-# *.pq linguist-language=powerquery-m
+
+*.pq linguist-language=power-query-m
+* text=auto
