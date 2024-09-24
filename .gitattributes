@@ -1,4 +1,1 @@
-# Auto detect text files and perform LF normalization
-
-*.m linguist-language=m
-* text=auto
+*.m linguist-language=haskell
