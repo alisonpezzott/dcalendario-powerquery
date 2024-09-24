@@ -1,3 +1,3 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-*.m linguist-language=power-query-m
+*.m linguist-language=powershell 
