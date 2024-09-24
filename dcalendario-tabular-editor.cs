@@ -1,10 +1,12 @@
 // Este script realiza as seguintes operações:
-// Faz a ordenação das colunas de texto pelas colunas numéricas
-// Organiza as colunas em pastas por granularidade
-// Aplica o formato short date para colunas do tipo data
+// 1. Faz a ordenação das colunas de texto pelas colunas numéricas
+// 2. Organiza as colunas em pastas por granularidade
+// 3. Aplica o formato short date para colunas do tipo data
+// 4. Remove agregações das colunas numéricas
+// 5. Marca a tabela como tabela de data
 
 // Acessa a tabela dCalendario
-var tb = Model.Tables["dCalendario"];  
+var dcalendario = Model.Tables["dCalendario"];  
 
 // Cria um mapeamento das colunas de texto e suas respectivas colunas numéricas para ordenação
 var columnPairs = new Dictionary<string, string>
@@ -52,8 +54,8 @@ var columnPairs = new Dictionary<string, string>
 // Aplica a ordenação para cada coluna de texto
 foreach (var pair in columnPairs)
 {
-    var textColumn = tb.Columns[pair.Key];  // Coluna de texto
-    var sortColumn = tb.Columns[pair.Value];  // Coluna numérica correspondente
+    var textColumn = dcalendario.Columns[pair.Key];  // Coluna de texto
+    var sortColumn = dcalendario.Columns[pair.Value];  // Coluna numérica correspondente
 
     // Verifica se ambas as colunas existem e aplica a ordenação
     if (textColumn != null && sortColumn != null)
@@ -89,7 +91,7 @@ foreach (var folder in displayFolders)
 
     foreach (var columnName in columns)
     {
-        var column = tb.Columns[columnName];
+        var column = dcalendario.Columns[columnName];
         if (column != null)
         {
             column.DisplayFolder = folderName; // Atribue as colunas à pasta correspondente
@@ -98,7 +100,7 @@ foreach (var folder in displayFolders)
 }
 
 // Desabilitar agregações para todas as colunas da tabela
-foreach (var column in tb.Columns)
+foreach (var column in dcalendario.Columns)
 {
     column.SummarizeBy = AggregateFunction.None;  // Desabilitar agregação
 }
@@ -107,12 +109,17 @@ foreach (var column in tb.Columns)
 var dateColumns = new[] { "SemanaFim", "SemanaInicio", "AnoFim", "AnoInicio", "Data", "MesFim", "MesInicio", "SemanaIsoFim", "SemanaIsoInicio", "TrimestreFim", "TrimestreInicio" };  // Colunas que contêm datas
 foreach (var columnName in dateColumns)
 {
-    var column = tb.Columns[columnName];
+    var column = dcalendario.Columns[columnName];
     if (column != null)
     {
         column.FormatString = "Short Date";  // Aplica o formato de data curta
     }
 }
+
+// Marcar como uma tabela de data
+dcalendario.DataCategory = "Time";
+dcalendario.Columns["Data"].IsKey = true; 
+
 
 
 
