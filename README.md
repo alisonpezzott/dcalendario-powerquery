@@ -1,4 +1,4 @@
-# Dimensão Calendário (Power Query M)
+# dCalendario (Power Query M)
 
 1. Copie o código em [dcalendario.pq](dcalendario.pq);
 2. No Power Query crie uma nova consulta nula;
