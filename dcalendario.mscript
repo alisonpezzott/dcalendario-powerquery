@@ -258,7 +258,7 @@ let
                         //AnoFim 
                         Date.EndOfYear(data), 
                         
-                        /AnoIndice 
+                        //AnoIndice 
                         ano - anoInicial + 1, 
                         
                         //AnoDecrescenteNome 
