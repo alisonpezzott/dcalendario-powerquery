@@ -12,3 +12,5 @@
 10. Copie o código em [dcalendario-tabular-editor.cs](dcalendario-tabular-editor.cs) e cole na janela `C# Script` e clique em `Run` ou pressione `F5`;
 11. Depois vá em `File > Save` ou pressione `Ctrl+S`;
 12. Pronto, volte para o Power BI e sua tabela dCalendario estará completa, classificada e organizada.
+
+Obs.: Caso não queira utilizar o Tabular Editor para realizar a organização da tabela, disponibilizei o arquivo [dcalendario-ordenacao.xlsx](dcalendario-ordenacao.xlsx) contendo as colunas, suas ordenações, formatos e pastas de organização sugeridas.
