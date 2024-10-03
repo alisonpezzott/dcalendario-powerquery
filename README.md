@@ -1,5 +1,8 @@
 # dCalendario (Power Query M)
 
+Essa é a versão oficial em português brasileiro "pt-BR".  
+See [here](https://github.com/alisonpezzott/dcalendar-powerquery) for English Version "en-US".  
+
 ## Download PBIX pronto
 [dcalendario-v6.0.pbix](https://github.com/alisonpezzott/dcalendario-powerquery/releases/tag/v6.0) 
 
