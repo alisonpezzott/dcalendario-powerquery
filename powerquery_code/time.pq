@@ -69,11 +69,17 @@ let
         Int64.Type
     ),
 
+    transformTimeToText = Table.TransformColumns(add_Shift,{
+        {"Time", each Time.ToText(_,"hh:mm:ss"), type text},
+        {"HourStart", each Time.ToText(_,"hh:mm:ss"), type text},
+        {"MinuteStart", each Time.ToText(_,"hh:mm:ss"), type text}
+    }),
+
     #"-----RENAME COLUMNS-----" = "",
 
     columnNamesDictionary = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("ZY/BCsIwDIbfpeddtmfoYQMVobuNHeoWXcA1UFrQt7dZW1r1lC9/fvIn0yQGs8JLNFxxgQJzM4kRd1Z6stoiVZSHbVfEttu+Gzb15G1Sc2H5jMY7Xn0AFeChgoXMGjQFD29WqiivVE5blxYOBpfjuAgSTvonJ7tjxp//WWVL/b5CuJ/jJerIbE4U3EGOZ254dxe/34A/HL01FDqw7I4QzIcs5vkD", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"en-US" = _t, #"pt-BR" = _t, #"es-ES" = _t]),
     
     fromToColumnNames = if language <> "en-US" then List.Zip(Table.ToColumns(Table.SelectColumns(columnNamesDictionary, {"en-US", language}))) else null,
-    renamedTable = if language <> "en-US" then Table.RenameColumns(add_Shift, fromToColumnNames) else add_Shift
+    renamedTable = if language <> "en-US" then Table.RenameColumns(transformTimeToText, fromToColumnNames) else add_Shift
 in
     renamedTable
