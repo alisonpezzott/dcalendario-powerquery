@@ -62,8 +62,8 @@ Follow these instructions to install and setup Tabular Editor:
    ![](assets/new_blank_query.png)
 4. Rename this query to `Calendar`  
    ![](assets/rename_calendar.png)  
-5. Go to the code [calendar.pq](powerquery_code/calendar.pq) and copy it by clicking on `Raw`.  
-   ![](assets/raw.png)  
+5. Go to the code [calendar.pq](powerquery_code/calendar.pq) and copy it by clicking on `Copy raw file`.  
+   ![](assets/copy_raw_file.png)  
 6. Return to Power Query, right-click on the query `Calendar` then clink on `Advanced Editor`.  
    ![](assets/go_to_advanced_editor.png)
 7. In the Advanced Editor, press Ctrl + A to select all, then press Ctrl + V to paste, overwriting any existing code and press `Done`.  
